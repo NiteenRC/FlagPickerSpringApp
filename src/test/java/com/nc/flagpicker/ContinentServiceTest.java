@@ -1,4 +1,4 @@
-package com.poc.flagpicker;
+package com.nc.flagpicker;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,15 +15,20 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.nc.flagpicker.model.Continent;
 import com.nc.flagpicker.model.Country;
-import com.nc.flagpicker.service.IContinentService;
+import com.nc.flagpicker.service.ContinentService;
 import com.nc.flagpicker.service.ICountryService;
 
+/**
+ * @author Niteen Chougula
+ * @version 2.0
+ * @since 2020-02-05
+ */
 @SpringBootTest
 @RunWith(SpringRunner.class)
-class FlagpickerApplicationTests {
+class ContinentServiceTest {
 
 	@Autowired
-	private IContinentService iContinentService;
+	private ContinentService iContinentService;
 
 	@Autowired
 	private ICountryService iCountryService;
@@ -49,7 +54,7 @@ class FlagpickerApplicationTests {
 
 	@Test
 	public void testFindByCountryName() throws IOException {
-		Country countryName = iCountryService.findByName("Nigeria");
-		assertEquals("NG", countryName);
+		Country country = iCountryService.findByName("Nigeria");
+		assertEquals("🇳🇬", country.getFlag());
 	}
 }
