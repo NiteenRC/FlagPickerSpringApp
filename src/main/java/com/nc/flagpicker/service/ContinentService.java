@@ -32,12 +32,12 @@ public class ContinentService implements IContinentService {
 
 	@Override
 	public boolean isContinenPresent(String continentName) {
-		return continentRepository.findByContinent(continentName) == null ? true : false;
+		return continentRepository.existsByContinentIgnoreCase(continentName);
 	}
 
 	@Override
 	public Continent findByContinentName(String continentName) {
-		Continent continent = continentRepository.findByContinent(continentName);
+		Continent continent = continentRepository.findByContinentIgnoreCase(continentName);
 		if (continent == null) {
 			throw new ResourceNotFoundException(ErrorMessage.CONTINENT_NOT_FOUND);
 		}

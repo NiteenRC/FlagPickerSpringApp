@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author Niteen Chougula
  * @version 2.0
@@ -20,6 +22,7 @@ public class Country {
 	private String flag;
 
 	@ManyToOne
+	@JsonIgnore
 	private Continent continent;
 
 	public Country() {

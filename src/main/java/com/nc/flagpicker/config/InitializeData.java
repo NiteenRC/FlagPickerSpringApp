@@ -51,7 +51,7 @@ public class InitializeData {
 		List<Continent> continents = objectMapper.readValue(inputStream, typeReference);
 		continents.forEach(continent -> {
 			boolean isConitnentPresent = continentService.isContinenPresent(continent.getContinent());
-			if (isConitnentPresent) {
+			if (!isConitnentPresent) {
 				continentRepository.save(continent);
 				continent.getCountries().forEach(country -> {
 					country.setContinent(continent);
